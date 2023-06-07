@@ -3,8 +3,6 @@ import { TouchableOpacity } from "react-native";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-type Props = {};
-
 const items = [
     {
         id: 1,
@@ -29,13 +27,23 @@ const items = [
     },
 ];
 
-const MenuButton = function ({}: Props) {
+type Props = {
+    navigation: any;
+};
+
+const MenuButton = function ({ navigation }: Props) {
+    const openMeetingRoom = function () {
+        navigation.navigate("MeetingRoom");
+    };
     return (
         <View style={styles.container}>
             {items.map(function (item, index) {
                 return (
                     <View key={index} style={styles.buttonContainer}>
                         <TouchableOpacity
+                            onPress={function () {
+                                return openMeetingRoom();
+                            }}
                             style={{
                                 ...styles.button,
                                 backgroundColor: item.customColor

@@ -5,15 +5,17 @@ import SearchBar from "../apps/Home/SearchBar";
 import MenuButton from "../apps/Home/MenuButton";
 import ContactMenu from "../apps/Home/ContactMenu";
 
-type Props = {};
+type Props = {
+    navigation: any;
+};
 
-const Home = function ({}: Props) {
+const Home = function ({ navigation }: Props) {
     return (
         <View style={styles.container}>
             <SafeAreaView style={styles.wrapper}>
                 <Header />
                 <SearchBar />
-                <MenuButton />
+                <MenuButton navigation={navigation} />
                 <ContactMenu />
             </SafeAreaView>
         </View>

@@ -1,18 +1,23 @@
 import React from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import Header from "../apps/MeetingRoom/Header";
+import OptionMeeting from "../apps/MeetingRoom/OptionMeeting";
 
-type Props = {};
+type Props = {
+    navigation: any;
+};
 
-const MeetingRoom = function ({}: Props) {
+const MeetingRoom = function ({ navigation }: Props) {
     return (
-        <View>
-            <SafeAreaView></SafeAreaView>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <Header navigation={navigation} />
+            <OptionMeeting />
+        </SafeAreaView>
     );
 };
 
 export default MeetingRoom;
 
 const styles = StyleSheet.create({
-    container: {},
+    container: { backgroundColor: "#223243", flex: 1 },
 });

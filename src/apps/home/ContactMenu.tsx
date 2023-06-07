@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
 type Props = {};
