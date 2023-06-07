@@ -8,10 +8,11 @@ const contactsMenuButtons = [
     {
         type: "starred",
         name: "Starred",
+        image: "star",
     },
     {
-        type: "",
-        name: "Starred",
+        type: "Khanhs",
+        name: "Nguyen Khanh",
         image: require("../../../assets/favicon.png"),
     },
 ];
@@ -23,7 +24,13 @@ const ContactMenu = function ({}: Props) {
                 return (
                     <View key={index} style={styles.wrapper}>
                         {contact.type === "starred" ? (
-                            <View></View>
+                            <View style={styles.starredIcon}>
+                                <AntDesign
+                                    name={contact.image}
+                                    size={30}
+                                    color={"#fefefe"}
+                                />
+                            </View>
                         ) : (
                             <Image
                                 source={contact.image}

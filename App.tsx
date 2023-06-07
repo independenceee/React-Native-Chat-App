@@ -1,9 +1,14 @@
+import "react-native-gesture-handler";
 import React from "react";
-import { Text, View } from "react-native";
-import Home from "./src/screens/Home";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import Navigation from "./src/navigations/Navigation";
 
 const App = function () {
-    return <Home />;
+    return (
+        <SafeAreaProvider>
+            <Navigation />
+        </SafeAreaProvider>
+    );
 };
 
 export default App;
