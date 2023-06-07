@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
-import Header from "../apps/home/Header";
-import SearchBar from "../apps/home/SearchBar";
-import MenuButton from "../apps/home/MenuButton";
-import ContactMenu from "../apps/home/ContactMenu";
+import Header from "../apps/Home/Header";
+import SearchBar from "../apps/Home/SearchBar";
+import MenuButton from "../apps/Home/MenuButton";
+import ContactMenu from "../apps/Home/ContactMenu";
 
 type Props = {};
 
