@@ -2,13 +2,21 @@ import { View, Text, StyleSheet, TextInput } from "react-native";
 import React, { useState } from "react";
 import Button from "../../components/Button";
 
-const OptionMeeting = function () {
-    const [name, setName] = useState<string>("");
-    const [roomId, setRoomId] = useState<string>("");
+type Props = {
+    name: string;
+    roomId: string;
+    setName: React.Dispatch<React.SetStateAction<string>>;
+    setRoomId: React.Dispatch<React.SetStateAction<string>>;
+    joinRoom: () => void;
+};
 
-    const handleSubmit = function () {
-        console.log(name, roomId);
-    };
+const OptionMeeting = function ({
+    name,
+    setName,
+    roomId,
+    setRoomId,
+    joinRoom,
+}: Props) {
     return (
         <View style={styles.container}>
             <View style={styles.infomation}>
@@ -34,7 +42,7 @@ const OptionMeeting = function () {
                     stylesContainer={styles.startMeetingButton}
                     stylesContent={{ color: "white", fontWeight: "bold" }}
                     content="Start Meeting"
-                    handleEvent={handleSubmit}
+                    handleEvent={joinRoom}
                 />
             </View>
         </View>
