@@ -4,28 +4,17 @@ import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import { TouchableOpacity } from "react-native";
 type Props = {
     navigation: any;
+    content: string;
 };
 
-const Header = function ({ navigation }: Props) {
+const Header = function ({ navigation, content }: Props) {
     const handleGoBack = function () {
         navigation.goBack();
     };
     return (
         <SafeAreaView>
             <View style={styles.container}>
-                <TouchableOpacity
-                    onPress={function () {
-                        return handleGoBack();
-                    }}
-                    style={styles.iconContainer}
-                >
-                    <AntDesign
-                        name={"arrowleft"}
-                        style={styles.icon}
-                        size={30}
-                    />
-                </TouchableOpacity>
-                <Text style={styles.text}>Start a Meeting</Text>
+                <Text style={styles.text}>{content}</Text>
             </View>
         </SafeAreaView>
     );
