@@ -98,7 +98,10 @@ const MeetingRoom = function ({ navigation }: Props) {
                             setModalVisible(!modalVisibale);
                         }}
                     >
-                        <Chat />
+                        <Chat
+                            modalVisibale={modalVisibale}
+                            setModalVisible={setModalVisible}
+                        />
                     </Modal>
 
                     <View style={styles.activeUsersContainer}>
