@@ -183,6 +183,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "#223243",
         flex: 1,
+        // height: "100%",
     },
     wrapper: {
         flex: 1,
