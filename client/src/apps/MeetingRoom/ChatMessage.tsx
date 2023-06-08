@@ -6,7 +6,8 @@ import {
     StyleSheet,
     TextInput,
     TouchableOpacity,
-    
+    ScrollView,
+    Image,
 } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 type Props = {};
@@ -15,7 +16,25 @@ const ChatMessage = function ({}: Props) {
     const [messageText, setMessageText] = useState<string>("");
     return (
         <View style={styles.container}>
-            <View style={styles.chatMessages}></View>
+            <View style={styles.chatMessages}>
+                <ScrollView>
+                    <View style={styles.reciever}>
+                        <Image
+                            source={require("../../../assets/adaptive-icon.png")}
+                            style={styles.avatar}
+                        />
+                        <Text style={styles.receiverText}>Reciever</Text>
+                    </View>
+
+                    <View style={styles.sender}>
+                        <Image
+                            source={require("../../../assets/adaptive-icon.png")}
+                            style={styles.avatar}
+                        />
+                        <Text style={styles.senderText}>Sender</Text>
+                    </View>
+                </ScrollView>
+            </View>
             <View style={styles.chatFormContainer}>
                 <Text style={{ color: "white" }}>Send to: Everyone</Text>
                 <View style={styles.chatForm}>
@@ -81,5 +100,37 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 10,
+    },
+    sender: {
+        padding: 15,
+        backgroundColor: "#0470DC",
+        alignSelf: "flex-start",
+        borderRadius: 20,
+        marginLeft: 15,
+        marginBottom: 20,
+        maxWidth: "80%",
+        position: "relative",
+    },
+    reciever: {
+        padding: 15,
+        backgroundColor: "#00dfc4",
+        alignSelf: "flex-end",
+        borderRadius: 20,
+        marginRight: 15,
+        marginBottom: 20,
+        maxWidth: "80%",
+        position: "relative",
+    },
+    receiverText: {},
+    senderText: {},
+
+    avatar: {
+        position: "absolute",
+        borderRadius: 50,
+        right: -5,
+        bottom: -15,
+        resizeMode: "contain",
+        width: 30,
+        height: 30,
     },
 });

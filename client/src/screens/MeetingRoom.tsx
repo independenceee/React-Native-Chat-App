@@ -73,7 +73,8 @@ const MeetingRoom = function ({ navigation }: Props) {
     };
 
     useEffect(() => {
-        socket = io("https://f90f-14-163-193-228.ap.ngrok.io", {
+        // transfer http://localhost:3000 => https://f90f-14-163-193-228.ap.ngrok.io by ngrok
+        socket = io("https://e924-14-163-193-228.ap.ngrok.io", {
             reconnection: true,
         });
         socket.on("connection", () => {

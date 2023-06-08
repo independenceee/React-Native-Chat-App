@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
 type Props = {};
@@ -15,11 +15,59 @@ const contactsMenuButtons = [
         name: "Nguyen Khanh",
         image: require("../../../assets/favicon.png"),
     },
+    {
+        type: "Khanhs",
+        name: "Nguyen Khanh",
+        image: require("../../../assets/favicon.png"),
+    },
+    {
+        type: "Khanhs",
+        name: "Nguyen Khanh",
+        image: require("../../../assets/favicon.png"),
+    },
+    {
+        type: "Khanhs",
+        name: "Nguyen Khanh",
+        image: require("../../../assets/favicon.png"),
+    },
+    {
+        type: "Khanhs",
+        name: "Nguyen Khanh",
+        image: require("../../../assets/favicon.png"),
+    },
+    {
+        type: "Khanhs",
+        name: "Nguyen Khanh",
+        image: require("../../../assets/favicon.png"),
+    },
+    {
+        type: "Khanhs",
+        name: "Nguyen Khanh",
+        image: require("../../../assets/favicon.png"),
+    },
+    {
+        type: "Khanhs",
+        name: "Nguyen Khanh",
+        image: require("../../../assets/favicon.png"),
+    },
+    {
+        type: "Khanhs",
+        name: "Nguyen Khanh",
+        image: require("../../../assets/favicon.png"),
+    },
+    {
+        type: "Khanhs",
+        name: "Nguyen Khanh",
+        image: require("../../../assets/favicon.png"),
+    },
 ];
 
 const ContactMenu = function ({}: Props) {
     return (
-        <View style={styles.container}>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={styles.container}
+        >
             {contactsMenuButtons.map(function (contact, index) {
                 return (
                     <View key={index} style={styles.wrapper}>
@@ -41,7 +89,7 @@ const ContactMenu = function ({}: Props) {
                     </View>
                 );
             })}
-        </View>
+        </ScrollView>
     );
 };
 
