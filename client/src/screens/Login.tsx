@@ -1,17 +1,34 @@
-import React, { useState } from "react";
-import { KeyboardAvoidingView } from "react-native";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet } from "react-native";
 import { Button, Input, Image } from "react-native-elements";
-
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 type Props = {
     navigation: any;
 };
 
 const Login = function ({ navigation }: Props) {
-    const [email, setEmail] = useState<string>();
-    const [password, setPassword] = useState<string>();
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
-    const handleSignIn = function () {};
+    const handleSignIn = function () {
+        signInWithEmailAndPassword(auth, email, password)
+            .then(function () {})
+            .catch(function (error) {
+                return console.log(error);
+            });
+    };
+
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, function (authUser) {
+            if (authUser) {
+                navigation.replace("ChatRoom");
+            }
+        });
+
+        return unSubscribe();
+    }, []);
 
     return (
         <View style={styles.container}>
@@ -22,6 +39,7 @@ const Login = function ({ navigation }: Props) {
             <View style={{ height: 0 }} />
             <View style={styles.inputContainer}>
                 <Input
+                    style={styles.textInput}
                     placeholder="Email"
                     autoFocus
                     value={email}
@@ -30,6 +48,7 @@ const Login = function ({ navigation }: Props) {
                     }}
                 />
                 <Input
+                    style={styles.textInput}
                     placeholder="Password"
                     secureTextEntry
                     value={password}
@@ -76,6 +95,10 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: 300,
         marginTop: 20,
+    },
+
+    textInput: {
+        color: "white",
     },
     button: {
         marginTop: 10,

@@ -41,9 +41,12 @@ io.on("connection", (socket) => {
             addUser(userName, roomId)
             socket.to(roomId).emit("user-connected", userName);
             io.to(roomId).emit("all-users", getRoomUsers(roomId));
+            socket.to(roomId).on("send-message", message => {
+                io.emit("receive-message", message);
+                console.log(message)
+            })
         }
         socket.on("disconnect", function() {
-            console.log("Connected");
             socket.leave(roomId);
             userleave(userName);
             io.to(roomId).emit("all-users", getRoomUsers(roomId))

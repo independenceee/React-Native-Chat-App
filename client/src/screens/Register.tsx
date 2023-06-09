@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import { Input, Button, Image } from "react-native-elements";
+import { auth } from "../firebase";
+import {
+    createUserWithEmailAndPassword,
+    // sendEmailVerification,
+    updateProfile,
+} from "firebase/auth";
+
 type Props = {
     navigation: any;
 };
@@ -11,7 +18,21 @@ const Register = function ({ navigation }: Props) {
     const [password, setPassword] = useState<string>("");
     const [imageUrl, setImageUrl] = useState<string>("");
 
-    const handleRegister = function () {};
+    const handleRegister = function () {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(function (authUser) {
+                // sendEmailVerification(authUser.user);
+                updateProfile(authUser.user, {
+                    displayName: fullName,
+                    photoURL:
+                        imageUrl ||
+                        "https://avatars.githubusercontent.com/u/108068667?s=400&u=5e650526110969fc0a35f3839d8f3acf37228dbd&v=4",
+                });
+            })
+            .catch(function (error) {
+                return console.log(error.message);
+            });
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -57,7 +78,11 @@ const Register = function ({ navigation }: Props) {
                         }}
                     />
                 </View>
-                <Button title={"Register"} containerStyle={styles.button} />
+                <Button
+                    onPress={handleRegister}
+                    title={"Register"}
+                    containerStyle={styles.button}
+                />
             </View>
         </SafeAreaView>
     );
@@ -98,7 +123,9 @@ const styles = StyleSheet.create({
         width: 300,
         marginTop: 20,
     },
-    textInput: {},
+    textInput: {
+        color: "white",
+    },
     button: {
         marginTop: 10,
         width: 250,

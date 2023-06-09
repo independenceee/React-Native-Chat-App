@@ -2,7 +2,9 @@ import React from "react";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+
 import Home from "../screens/Home";
+import ChatRoom from "../screens/ChatRoom";
 import MeetingRoom from "../screens/MeetingRoom";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
@@ -21,6 +23,11 @@ const Navigation = function ({}: Props) {
                 />
                 <Stack.Screen
                     options={{ headerShown: false }}
+                    name="ChatRoom"
+                    component={ChatRoom}
+                />
+                <Stack.Screen
+                    options={{ headerShown: false }}
                     name="Register"
                     component={Register}
                 />
@@ -30,9 +37,7 @@ const Navigation = function ({}: Props) {
                     component={Home}
                 />
                 <Stack.Screen
-                    options={{
-                        headerShown: false,
-                    }}
+                    options={{ headerShown: false }}
                     name="MeetingRoom"
                     component={MeetingRoom}
                 />

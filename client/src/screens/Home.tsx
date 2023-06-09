@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { View, SafeAreaView, StyleSheet } from "react-native";
 import Header from "../apps/Home/Header";
 import SearchBar from "../apps/Home/SearchBar";
 import MenuButton from "../apps/Home/MenuButton";

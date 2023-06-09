@@ -108,7 +108,6 @@ const MeetingRoom = function ({ navigation }: Props) {
                     <View style={styles.activeUsersContainer}>
                         <View style={styles.cameraContainer}>
                             <Camera
-                                type="front"
                                 style={{
                                     width:
                                         activeUsers.length <= 1 ? "100%" : 200,
